@@ -1,5 +1,5 @@
 As as an author
-I want to want to write content
+I want to write content
 So that that I can get it out of my head.
 
 As a reader
