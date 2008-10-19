@@ -1,0 +1,325 @@
+/* @override http://specify.local/stylesheets/branches.css */
+
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #7A674C;
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font-size: 13px;
+	color: #FCFAE6;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	text-transform: none;
+	font-weight: normal;
+	color: #FFFFC6;
+}
+
+h1 {
+	letter-spacing: -1px;
+	font-size: 32px;
+}
+
+h2 {
+	font-size: 23px;
+}
+
+p, ul, ol {
+	margin: 0 0 2em 0;
+	text-align: justify;
+	line-height: 1.5em;
+}
+
+a:link {
+	color: #F6E48A;
+}
+
+a:hover, a:active {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+a:visited {
+	color: #F6E48A;
+}
+
+img {
+	border: none;
+}
+
+img.left {
+	float: left;
+	margin: 7px 15px 0 0;
+}
+
+img.right {
+	float: right;
+	margin: 7px 0 0 15px;
+}
+
+/* Form */
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+legend {
+	display: none;
+}
+
+input, textarea, select {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #333333;
+}
+
+#wrapper {
+	background: #490102;
+}
+
+/* Header */
+
+#header {
+	
+	width: 900px;
+	height: 70px;
+	margin: 0 auto 10px auto;
+	padding-top: 20px;
+}
+
+#logo {
+	float: left;
+	height: 120px;
+	margin-left: 30px;
+}
+
+#logo h1 {
+	font-size: 38px;
+	color: #3399CC;
+}
+
+#logo h1 sup {
+	vertical-align: text-top;
+	font-size: 24px;
+}
+
+#logo h1 a {
+	color: #FFFFFF;
+}
+
+#logo h2 {
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #F4E395;
+}
+
+#logo a {
+	text-decoration: none;
+	color: #3399CC;
+}
+
+#utility {
+	float: right;
+}
+/* Search */
+#search {
+	float: right;
+	position: relative;
+}
+
+#search h2 {
+	margin-bottom: 20px;
+}
+
+#s {
+	width: 150px;
+	margin-right: 5px;
+	padding: 3px;
+	border: 1px solid #F0F0F0;
+}
+
+#x {
+	padding: 3px;
+	background: #ECECEC;
+	border: none;
+	text-transform: lowercase;
+	font-size: 11px;
+	color: #4F4F4F;
+}
+
+
+/* Menu */
+#menu {
+}
+
+#menu ul {
+	margin: 0;
+	padding: 15px 0 0 0;
+	list-style: none;
+}
+
+#menu li {
+	text-transform: lowercase;
+	display: inline;
+}
+
+#menu a {
+	display: block;
+	float: left;
+	margin-left: 5px;
+	padding: 7px 10px;
+	text-decoration: none;
+	font-size: 15px;
+	color: #FFFFFF;
+}
+
+#menu a:hover {
+	text-decoration: underline;
+}
+
+#menu .active a {
+}
+
+/* Page */
+
+#content {
+	width: 900px;
+	margin: 0;
+	padding: 5px 10px 10px;
+}
+
+/* Content */
+
+#page {
+	float: left;
+	width: 570px;
+	background: #6F5E45;
+	border-top: 1px #5C4A32 solid;
+	border-bottom: 1px #5C4A32 solid;
+	padding: 20px 30px 0px;
+}
+
+#page #author {
+	float: right;
+	position: relative;
+	right: -30px;
+	top: -20px;
+	display: inline;
+	background: #4f4332;
+	padding: 0;
+	margin: 0;
+}
+/* Post */
+
+#page h1 {
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	border-bottom: 1px dotted #A09584;
+}
+
+#page h2 {
+	margin: 1em 0;
+}
+
+#page ul, ol {
+	margin: 0.5em 0;
+}
+
+#page p {
+	margin: 1em 0 0 0;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: right;
+	width: 220px; 
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#sidebar li {
+	margin-bottom: 20px;
+	padding: 5px;
+	background: #6F5E45;
+	
+}
+
+#sidebar li ul {
+}
+
+#sidebar li li {
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar a {
+	text-decoration: none;
+}
+
+#sidebar h2 {
+	margin-bottom: 10px;
+	padding-bottom: 0px;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+#browse {
+}
+
+#browse ul ul  {
+	margin-left: 20px;
+}
+
+#browse ul li.current a {
+	color: orange;
+}
+
+#history a.profile {
+	font-style: italic;
+}
+
+#history a.author {
+	font-weight: bold;
+}
+/* Footer */
+
+#footer {
+	height: auto;
+	min-height: 74px;
+	padding: 10px 0 0 0;
+	background: #6F5E45 url(images/img01.jpg) repeat-x left top;
+}
+
+#legal {
+	clear: both;
+	padding-top: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 10px;
+	color: #FCFAE6;
+}
+
+#legal a {
+	font-weight: bold;
+	color: #F6E595;
+}
