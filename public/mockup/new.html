@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License:
+
+Title      : Branches
+Version    : 1.0
+Released   : 20081010
+Description: A two-column, fixed-width and lightweight template ideal for 1024x768 resolutions. Suitable for blogs and small websites.
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RSpec Guide</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="/stylesheets/branches.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="wrapper">
+<!-- start header -->
+<div id="header">
+	<div id="logo">
+		<h1><a href="#">RSpec Guide<sup></sup></a></h1>
+		<h2>Unofficial, Incomplete, Written by Humans</h2>
+	</div>
+	<div id="utility">
+  	<div id="search">
+  	<form method="get" action="">
+  		<fieldset>
+  		<input type="text" id="s" name="s" value="" />
+  		<input type="submit" id="x" value="Search" />
+  		</fieldset>
+  	</form>
+  	</div>
+
+  	<div id="menu">
+  		<ul>
+  			<li class="active"><a href="#">Home</a></li>
+  			<li><a href="#">about</a></li>
+  			<li><a href="#">credits</a></li>
+  			<li><a href="#">login</a></li>
+  		</ul>
+  	</div>
+  </div>
+</div>
+<!-- end header -->
+</div>
+
+<!-- start page -->
+<div id="content">
+	<!-- start content -->
+	<div class="body" id="page_form">
+	  <div class="inset"><a href="#"><< </a> Revision 60 of 61 <a href="#"> >></a></div>
+    <h1>New Page</h1>
+		<p>This is a child of page <a class="pagelink">Home</a>.</p>
+		<p>The editor reviewing your submission is <a class="profile">Stephen Eley</a>.</p> 
+	  <form method="get" action="#">
+  		<p id="form_title">
+			<label for="page_title">Title:</label>
+			<input type="text" length="60" id="page_title"/>
+			</p>
+			<p>
+			<label for="page_content">Page body (using Markdown syntax):</label><br/>
+			<textarea id="page_content" rows="40" cols="80"></textarea>
+			</p>
+			<p>
+			<input type="submit" value="Save Draft"/>
+			<input type="submit" value="Publish"/>
+			</p>
+		</form>
+  </div>
+	<!-- end content -->
+	<!-- start sidebar -->
+	<div id="sidebar">
+		<ul>
+		  <li id="preview">
+		    <h1>The First Iteration</h1>
+
+        <p>Getting started is often the hardest part of good behavior-driven development. Typing <code>rails myappname</code> is easy; but once you&#8217;ve got that, then what? Make a scaffold? Install every plugin you think you&#8217;ll ever need? Do you do models first, or views first? How much should you know before you code?</p>
+
+        <p>I thought about this before I started, and jotted down a sequence of steps on note cards. It&#8217;s not the <em>only</em> good way to get started, but I&#8217;m pretty sure it doesn&#8217;t suck. At least by having a template to follow, I won&#8217;t flail later on.</p>
+
+        <h2>The Short List</h2>
+
+        <p>In summary, it comes down to:</p>
+
+        <ul>
+        <li>Vision and user stories</li>
+        <li>Pick one user story and call it a feature</li>
+        <li>Mock up the feature on paper and in HTML</li>
+        <li>Write scenarios for the feature</li>
+        <li>Write steps for one scenario</li>
+        <li>Spec and create the model</li>
+        <li>Spec and create the controller</li>
+        <li>Spec and create the view</li>
+        </ul>
+        <h2>The Long List</h2>
+
+        <p>In detail, the steps:</p>
+
+        <ol>
+        <li>Write down your vision. &#8220;What <em>is</em> the app?&#8221; in one sentence.</li>
+        <li>Write some user stories. More than you need is okay; but make sure you have the core ones.</li>
+        <li>Pick <em>one</em> story to implement first. Do not pick two. Three is shooting yourself in the head.</li>
+        <li>Set up your environment. Install gems if needed, create your Rails app, and check it into version control.</li>
+        <li>Paper prototype the screen(s) for that story, then mock it up in HTML in /public.</li>
+        <li>Write scenarios for your story as a feature in Cucumber.</li>
+        <li>Write steps for <em>one</em> of those scenarios, using what you learned from the HTML mockup. Use Webrat for HTML elements.</li>
+        <li>Identify the model(s) you need. Hopefully just one, if you picked the right starting point.</li>
+        <li>Determine what fields you need in that model to implement your scenario. <em>Do not</em> define any fields you don&#8217;t need yet.</li>
+        <li>Write a fixture or factory method for it. Put plausible values in for the fields you&#8217;ve defined.</li>
+        <li>Create a model spec file. For now, just include one example: <code>it "should be valid"</code>.</li>
+        <li>Fire up <code>script/autospec</code>. Watch it fail. Yay.</li>
+        <li>Now (finally!) create the model. It&#8217;s okay to use <code>script/generate model</code> to shortcut the migration definition.</li>
+        <li>Make an example for another model behavior (e.g. <code>it "should require a title"</code>), then implement it in the model. Repeat until the model is implemented for this scenario. Let autospec give you constant psychological reinforcement.</li>
+        <li>Create a controller spec file. Use your factory to populate data to save mocking time. Describe one action for the scenario (probably &#8216;show&#8217; or &#8216;index&#8217; or &#8216;new&#8217;). Just write a spec that it renders the right template.</li>
+        <li>Add the resource to <strong>routes.rb</strong> and make the empty controller file.</li>
+        <li>Implement your controller action.</li>
+        <li>Rinse, lather, repeat for the controller spec and controller actions. Spec your data loads and saves, then write them until the scenario feels done.</li>
+        <li>Create a view spec for one of the needed views. Don&#8217;t try to mock the whole model, as that&#8217;s a pain; instead build a new instance with your factory (don&#8217;t save it unless you have to). In the example, only create expectations for elements that are really important. If it&#8217;s a form, spec the form behavior as a shared behavior to save time between &#8216;new&#8217; and &#8216;edit&#8217;.</li>
+        <li>Create the view. With the HTML already written, it should be really easy. For maximum readability, use <code>html2haml</code> to convert it to HAML. Once again, anything that isn&#8217;t part of your scenario, leave it mocked.</li>
+        <li>Repeat specing and view creation for any other significant views or view cases. (I.e., reloading the existing data for a &#8216;new&#8217; form that didn&#8217;t validate correctly and showing errors.)</li>
+        <li>Run the feature scenario again. Does it pass?  Whoo!  If it doesn&#8217;t, figure out whether it&#8217;s the test or the implementation that&#8217;s broken, and fix whatever until it looks right.</li>
+        <li>Run the actual app, too, and eyeball it. This step isn&#8217;t just important, it <em>feels</em> good.</li>
+        <li>Next scenario. Do it until the feature&#8217;s done. Then do something to be nice to yourself.</li>
+        </ol>
+      </li>
+      <!-- <li id="browse">
+        <h2>Browse</h2>
+        <ul>
+          <li><a href="#">Welcome to RSpec</a></li>
+          <ul>
+            <li><a href="#">Getting Started</a></li>
+            <li><a href="#">A Development Diary</a></li>
+            <li><a href="#">Principles</a></li>
+            <ul>
+              <li><a href="#">What You Need</a></li>
+              <li class="current"><a href="#">First Iteration</a></li>
+              <l><a href="#">Environment Setup</a></li>
+            </ul>
+            <li><a href="#">Tips and Tricks</a></li>
+          </ul>
+        </ul>
+      </li> -->
+      <!-- <li>
+        <h2><a href="#">Download This Book</h2>
+      </li>
+      <li>
+        <h2><a href="#">Submit a Page</h2>
+      </li> -->
+			<li id="history">
+				<h2>Revision History</h2>
+				<ul>
+				  <li><a class="date" href="#">5 days ago</a> by <a class="profile author" href="#">Stephen Eley</a></li>
+				  <li><a class="date" href="#">1 week ago</a> by Joe Blow</li>
+				  <li><a class="date" href="#">2 weeks ago</a> by Anonymous</li>
+				  <li><a class="date" href="#">3 months ago</a> by <a class="profile" href="#">John Smith</a></li>
+				  <li><a class="date" href="#">1 year ago</a> by <a class="profile author" href="#">Stephen Eley</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<!-- end sidebar -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+<!-- start footer -->
+<div id="footer">
+	<p id="legal">(c)2008 Escape Artists, Inc. Powered by <strong>Specify.</strong><br/>
+	  Template by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+</div>
+<!-- end footer -->
+</body>
+</html>
