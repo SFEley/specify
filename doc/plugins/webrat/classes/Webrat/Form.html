@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Webrat::Form</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Webrat::Form</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/vendor/plugins/webrat/lib/webrat/core/form_rb.html">
+                vendor/plugins/webrat/lib/webrat/core/form.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000100">fields</a>&nbsp;&nbsp;
+      <a href="#M000105">fields_by_type</a>&nbsp;&nbsp;
+      <a href="#M000099">find_button</a>&nbsp;&nbsp;
+      <a href="#M000097">find_field</a>&nbsp;&nbsp;
+      <a href="#M000102">find_field_by_id</a>&nbsp;&nbsp;
+      <a href="#M000104">find_field_by_label</a>&nbsp;&nbsp;
+      <a href="#M000103">find_field_by_name</a>&nbsp;&nbsp;
+      <a href="#M000098">find_select_option</a>&nbsp;&nbsp;
+      <a href="#M000108">form_action</a>&nbsp;&nbsp;
+      <a href="#M000107">form_method</a>&nbsp;&nbsp;
+      <a href="#M000109">merge</a>&nbsp;&nbsp;
+      <a href="#M000096">new</a>&nbsp;&nbsp;
+      <a href="#M000106">params</a>&nbsp;&nbsp;
+      <a href="#M000101">submit</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HASH</td>
+          <td>=</td>
+          <td class="context-item-value">[Hash, HashWithIndifferentAccess] rescue [Hash]</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">element</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000096" class="method-detail">
+        <a name="M000096"></a>
+
+        <div class="method-heading">
+          <a href="#M000096" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(session, element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000096-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000096-source">
+<pre>
+   <span class="ruby-comment cmt"># File vendor/plugins/webrat/lib/webrat/core/form.rb, line 5</span>
+5:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">session</span>, <span class="ruby-identifier">element</span>)
+6:       <span class="ruby-ivar">@session</span>  = <span class="ruby-identifier">session</span>
+7:       <span class="ruby-ivar">@element</span>  = <span class="ruby-identifier">element</span>
+8:       <span class="ruby-ivar">@fields</span>   = <span class="ruby-keyword kw">nil</span>
+9:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000100" class="method-detail">
+        <a name="M000100"></a>
+
+        <div class="method-heading">
+          <a href="#M000100" class="method-signature">
+          <span class="method-name">fields</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000100-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000100-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/webrat/lib/webrat/core/form.rb, line 38</span>
+38:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fields</span>
+39:       <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@fields</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@fields</span>
+40:       
+41:       <span class="ruby-ivar">@fields</span> = (<span class="ruby-ivar">@element</span> <span class="ruby-operator">/</span> <span class="ruby-value str">&quot;button, input, textarea, select&quot;</span>).<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">field_element</span><span class="ruby-operator">|</span>
+42:         <span class="ruby-constant">Field</span>.<span class="ruby-identifier">class_for_element</span>(<span class="ruby-identifier">field_element</span>).<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">field_element</span>)
+43:       <span class="ruby-keyword kw">end</span>
+44:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000099" class="method-detail">
+        <a name="M000099"></a>
+
+        <div class="method-heading">
+          <a href="#M000099" class="method-signature">
+          <span class="method-name">find_button</span><span class="method-args">(value = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000099-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000099-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/webrat/lib/webrat/core/form.rb, line 31</span>
+31:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_button</span>(<span class="ruby-identifier">value</span> = <span class="ruby-keyword kw">nil</span>)
+32:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">fields_by_type</span>([<span class="ruby-constant">ButtonField</span>]).<span class="ruby-identifier">first</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>      
+33:       <span class="ruby-identifier">possible_buttons</span> = <span class="ruby-identifier">fields_by_type</span>([<span class="ruby-constant">ButtonField</span>])
+34:       <span class="ruby-identifier">possible_buttons</span>.<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">possible_button</span><span class="ruby-operator">|</span> <span class="ruby-identifier">possible_button</span>.<span class="ruby-identifier">matches_id?</span>(<span class="ruby-identifier">value</span>) } <span class="ruby-operator">||</span>
+35:       <span class="ruby-identifier">possible_buttons</span>.<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">possible_button</span><span class="ruby-operator">|</span> <span class="ruby-identifier">possible_button</span>.<span class="ruby-identifier">matches_value?</span>(<span class="ruby-identifier">value</span>) }
+36:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000097" class="method-detail">
+        <a name="M000097"></a>
+
+        <div class="method-heading">
+          <a href="#M000097" class="method-signature">
+          <span class="method-name">find_field</span><span class="method-args">(id_or_name_or_label, *field_types)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000097-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000097-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/webrat/lib/webrat/core/form.rb, line 11</span>
+11:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_field</span>(<span class="ruby-identifier">id_or_name_or_label</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">field_types</span>)
+12:       <span class="ruby-identifier">possible_fields</span> = <span class="ruby-identifier">fields_by_type</span>(<span class="ruby-identifier">field_types</span>)
+13:       
+14:       <span class="ruby-identifier">find_field_by_id</span>(<span class="ruby-identifier">possible_fields</span>, <span class="ruby-identifier">id_or_name_or_label</span>)    <span class="ruby-operator">||</span>
+15:       <span class="ruby-identifier">find_field_by_name</span>(<span class="ruby-identifier">possible_fields</span>, <span class="ruby-identifier">id_or_name_or_label</span>)  <span class="ruby-operator">||</span>
+16:       <span class="ruby-identifier">find_field_by_label</span>(<span class="ruby-identifier">possible_fields</span>, <span class="ruby-identifier">id_or_name_or_label</span>) <span class="ruby-operator">||</span>
+17:       <span class="ruby-keyword kw">nil</span>
+18:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000098" class="method-detail">
+        <a name="M000098"></a>
+
+        <div class="method-heading">
+          <a href="#M000098" class="method-signature">
+          <span class="method-name">find_select_option</span><span class="method-args">(option_text)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000098-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000098-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/webrat/lib/webrat/core/form.rb, line 20</span>
+20:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_select_option</span>(<span class="ruby-identifier">option_text</span>)
+21:       <span class="ruby-identifier">select_fields</span> = <span class="ruby-identifier">fields_by_type</span>([<span class="ruby-constant">SelectField</span>])
+22: 
+23:       <span class="ruby-identifier">select_fields</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">select_field</span><span class="ruby-operator">|</span>
+24:         <span class="ruby-identifier">result</span> = <span class="ruby-identifier">select_field</span>.<span class="ruby-identifier">find_option</span>(<span class="ruby-identifier">option_text</span>)
+25:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">result</span>
+26:       <span class="ruby-keyword kw">end</span>
+27: 
+28:       <span class="ruby-keyword kw">nil</span>
+29:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000101" class="method-detail">
+        <a name="M000101"></a>
+
+        <div class="method-heading">
+          <a href="#M000101" class="method-signature">
+          <span class="method-name">submit</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000101-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000101-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/webrat/lib/webrat/core/form.rb, line 46</span>
+46:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">submit</span>
+47:       <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">request_page</span>(<span class="ruby-identifier">form_action</span>, <span class="ruby-identifier">form_method</span>, <span class="ruby-identifier">params</span>)
+48:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000105" class="method-detail">
+        <a name="M000105"></a>
+
+        <div class="method-heading">
+          <a href="#M000105" class="method-signature">
+          <span class="method-name">fields_by_type</span><span class="method-args">(field_types)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000105-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000105-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/webrat/lib/webrat/core/form.rb, line 67</span>
+67:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fields_by_type</span>(<span class="ruby-identifier">field_types</span>)
+68:       <span class="ruby-identifier">fields</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">field_types</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">f</span>.<span class="ruby-identifier">class</span>) }
+69:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000102" class="method-detail">
+        <a name="M000102"></a>
+
+        <div class="method-heading">
+          <a href="#M000102" class="method-signature">
+          <span class="method-name">find_field_by_id</span><span class="method-args">(possible_fields, id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000102-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000102-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/webrat/lib/webrat/core/form.rb, line 52</span>
+52:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_field_by_id</span>(<span class="ruby-identifier">possible_fields</span>, <span class="ruby-identifier">id</span>)
+53:       <span class="ruby-identifier">possible_fields</span>.<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">possible_field</span><span class="ruby-operator">|</span> <span class="ruby-identifier">possible_field</span>.<span class="ruby-identifier">matches_id?</span>(<span class="ruby-identifier">id</span>) }
+54:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000104" class="method-detail">
+        <a name="M000104"></a>
+
+        <div class="method-heading">
+          <a href="#M000104" class="method-signature">
+          <span class="method-name">find_field_by_label</span><span class="method-args">(possible_fields, label)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000104-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000104-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/webrat/lib/webrat/core/form.rb, line 60</span>
+60:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_field_by_label</span>(<span class="ruby-identifier">possible_fields</span>, <span class="ruby-identifier">label</span>)      
+61:       <span class="ruby-identifier">matching_fields</span> = <span class="ruby-identifier">possible_fields</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">possible_field</span><span class="ruby-operator">|</span>
+62:         <span class="ruby-identifier">possible_field</span>.<span class="ruby-identifier">matches_label?</span>(<span class="ruby-identifier">label</span>)
+63:       <span class="ruby-keyword kw">end</span>      
+64:       <span class="ruby-identifier">matching_fields</span>.<span class="ruby-identifier">min</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">label_text</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">label_text</span>.<span class="ruby-identifier">length</span> }
+65:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000103" class="method-detail">
+        <a name="M000103"></a>
+
+        <div class="method-heading">
+          <a href="#M000103" class="method-signature">
+          <span class="method-name">find_field_by_name</span><span class="method-args">(possible_fields, name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000103-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000103-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/webrat/lib/webrat/core/form.rb, line 56</span>
+56:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_field_by_name</span>(<span class="ruby-identifier">possible_fields</span>, <span class="ruby-identifier">name</span>)
+57:       <span class="ruby-identifier">possible_fields</span>.<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">possible_field</span><span class="ruby-operator">|</span> <span class="ruby-identifier">possible_field</span>.<span class="ruby-identifier">matches_name?</span>(<span class="ruby-identifier">name</span>) }
+58:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000108" class="method-detail">
+        <a name="M000108"></a>
+
+        <div class="method-heading">
+          <a href="#M000108" class="method-signature">
+          <span class="method-name">form_action</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000108-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000108-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/webrat/lib/webrat/core/form.rb, line 86</span>
+86:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">form_action</span>
+87:       <span class="ruby-ivar">@element</span>[<span class="ruby-value str">&quot;action&quot;</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-value">? </span><span class="ruby-ivar">@session</span>.<span class="ruby-identifier">current_url</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@element</span>[<span class="ruby-value str">&quot;action&quot;</span>]
+88:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000107" class="method-detail">
+        <a name="M000107"></a>
+
+        <div class="method-heading">
+          <a href="#M000107" class="method-signature">
+          <span class="method-name">form_method</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000107-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000107-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/webrat/lib/webrat/core/form.rb, line 82</span>
+82:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">form_method</span>
+83:       <span class="ruby-ivar">@element</span>[<span class="ruby-value str">&quot;method&quot;</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-value">? </span><span class="ruby-operator">:</span><span class="ruby-identifier">get</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@element</span>[<span class="ruby-value str">&quot;method&quot;</span>].<span class="ruby-identifier">downcase</span>
+84:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000109" class="method-detail">
+        <a name="M000109"></a>
+
+        <div class="method-heading">
+          <a href="#M000109" class="method-signature">
+          <span class="method-name">merge</span><span class="method-args">(all_params, new_param)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000109-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000109-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/webrat/lib/webrat/core/form.rb, line 92</span>
+ 92:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">merge</span>(<span class="ruby-identifier">all_params</span>, <span class="ruby-identifier">new_param</span>)
+ 93:       <span class="ruby-identifier">new_param</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+ 94:         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">all_params</span>[<span class="ruby-identifier">key</span>]
+ 95:         <span class="ruby-keyword kw">when</span> <span class="ruby-operator">*</span><span class="ruby-constant">HASH</span>
+ 96:           <span class="ruby-identifier">merge_hash_values</span>(<span class="ruby-identifier">all_params</span>[<span class="ruby-identifier">key</span>], <span class="ruby-identifier">value</span>)
+ 97:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Array</span>
+ 98:           <span class="ruby-identifier">all_params</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">value</span>
+ 99:         <span class="ruby-keyword kw">else</span>
+100:           <span class="ruby-identifier">all_params</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+101:         <span class="ruby-keyword kw">end</span>
+102:       <span class="ruby-keyword kw">end</span>
+103:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000106" class="method-detail">
+        <a name="M000106"></a>
+
+        <div class="method-heading">
+          <a href="#M000106" class="method-signature">
+          <span class="method-name">params</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000106-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000106-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/webrat/lib/webrat/core/form.rb, line 71</span>
+71:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">params</span>
+72:       <span class="ruby-identifier">all_params</span> = {}
+73:       
+74:       <span class="ruby-identifier">fields</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">field</span><span class="ruby-operator">|</span>
+75:         <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">field</span>.<span class="ruby-identifier">to_param</span>.<span class="ruby-identifier">nil?</span>
+76:         <span class="ruby-identifier">merge</span>(<span class="ruby-identifier">all_params</span>, <span class="ruby-identifier">field</span>.<span class="ruby-identifier">to_param</span>)
+77:       <span class="ruby-keyword kw">end</span>
+78:       
+79:       <span class="ruby-identifier">all_params</span>
+80:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

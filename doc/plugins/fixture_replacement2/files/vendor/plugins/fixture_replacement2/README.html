@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>vendor/plugins/fixture_replacement2/README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Oct 19 00:27:33 -0400 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1><a href="../../../../classes/FixtureReplacement.html">FixtureReplacement</a></h1>
+<h2>What is <a href="../../../../classes/FixtureReplacement.html">FixtureReplacement</a></h2>
+<p>
+<a
+href="../../../../classes/FixtureReplacement.html">FixtureReplacement</a>
+is a <a href="http://rubyonrails.org/">Rails</a> plugin that provides a
+simple way to quickly populate your test database with model objects
+without having to manage multiple, brittle fixture files. You can easily
+set up complex object graphs (with models which reference other models) and
+add new objects on the fly.
+</p>
+<p>
+Not only can <a
+href="../../../../classes/FixtureReplacement.html">FixtureReplacement</a>
+make your test data easier to maintain, it can also help to make your tests
+and specs much more readable and intention-revealing by allowing you to
+omit extraneous details and focus only on the attributes that are important
+for a particular behaviour. It works well with both <a
+href="http://rspec.rubyforge.org/">RSpec</a> and <a
+href="http://www.ruby-doc.org/stdlib/libdoc/test/unit/rdoc/classes/Test/Unit.html">Test::Unit</a>.
+</p>
+<h3>What&#8216;s new in Version 2:</h3>
+<p>
+(Skip this section if you are new to fixture replacement)
+</p>
+<p>
+The format of the db/example_data.rb file is much more flexible. Now
+namespacing is taken care of, and even custom fixtures can be created. Here
+are some examples:
+</p>
+<pre>
+  module FixtureReplacement
+
+    # using Namespacing
+    attributes_for :credit_card, :class =&gt; Payment::CreditCard do |cc|
+      cc.user = default_user
+      cc.card_number = &quot;5555-5555-5555-5555&quot;
+    end
+
+    attributes_for :user do |u|
+      email = random_email
+
+      u.username = random_username
+      u.password = &quot;my-pass&quot;
+      u.password_confirmation = &quot;my-pass&quot;
+      u.education_level = default_education_level
+      u.gender = &quot;male&quot;
+      u.email_address = email
+      u.email_address_confirmation = email
+      u.date_of_birth = Time.mktime('1985', '06', '12')
+    end
+
+    # Here is the custom fixture.  The :from inherits
+    # all the attributes from the user specified above,
+    # but specific attributes can be overriden as needed.
+    # This is especially helpful in script/console in development
+    # mode, when you need to login to your site.
+    #
+    # This will generate the methods create_scott, and new_scott,
+    # which can be passed hashes, as usual
+    attributes_for :scott, :from =&gt; :user do |u|
+      u.username = &quot;scott&quot;
+      u.password = &quot;scott&quot;
+      u.password_confirmation = &quot;scott&quot;
+    end
+
+    # And here is an STI example.  Notice the :class needs
+    # to be specified, as well as the :from key, which will
+    # inherit the attributes.
+
+    attributes_for :item do |i|
+      i.user = default_user
+      i.category = default_category
+      i.title = &quot;Test Title #{String.random}&quot;
+      i.description = String.random
+      i.text = &quot;Item Text #{String.random}&quot;
+    end
+
+    attributes_for :writing, :from =&gt; :item, :class =&gt; Writing
+</pre>
+<p>
+Since all of this is in one file, editing it shouldn&#8216;t be a big task.
+Also, the create_*, new_* and default_* methods are still in place and
+function in the same manner as they did before, so none of your tests
+should need to change.
+</p>
+<p>
+Another note: If you are running <a
+href="../../../../classes/FixtureReplacement.html">FixtureReplacement</a>
+on externals, you&#8216;ll want to remove the old repository link (<a
+href="http://thmadb.com/public_svn/plugins/fixture_replacement">thmadb.com/public_svn/plugins/fixture_replacement</a>/),
+and switch to the new one (<a
+href="http://thmadb.com/public_svn/plugins/fixture_replacement2">thmadb.com/public_svn/plugins/fixture_replacement2</a>/).
+</p>
+<p>
+Version 1 still works, and you are welcome to use it, but no new
+development will occur with it. The old docs are still <a
+href="http://fixture_replacement.rubyforge.org/version_one/">around</a>
+</p>
+<h2>How to use <a href="../../../../classes/FixtureReplacement.html">FixtureReplacement</a></h2>
+<h3>Defining default attributes</h3>
+<p>
+At the heart of <a
+href="../../../../classes/FixtureReplacement.html">FixtureReplacement</a>
+is the <tt>db/example_data.rb</tt> file where you define the default
+attributes for each of your test models. This example shows the default
+attributes for a user:
+</p>
+<pre>
+  module FixtureReplacement
+
+    attributes_for :user do |u|
+      password = String.random
+
+      u.value                  = &quot;a value&quot;,
+      u.other                  = &quot;other value&quot;,
+      u.another                = String.random,     # random string 10 characters long
+      u.one_more               = String.random(15), # 15 characters long
+      u.password               = password,
+      u.password_confirmation  = password,
+      u.associated_object      = default_bar        # expects attributes_for :bar to be setup
+    end
+
+  end
+</pre>
+<p>
+Note that:
+</p>
+<ul>
+<li>a <a href="../../../../classes/String.html#M000001">String.random</a>
+method is provided for attributes whose exact value isn&#8216;t important;
+this means you can create multiple, unique model instances
+
+</li>
+<li>you can perform arbitrary set-up and execute any Ruby code prior to
+returning the hash (as shown here where a <tt>password</tt> is generated
+and then used for both the <tt>:password</tt> and
+<tt>:password_confirmation</tt> attributes)
+
+</li>
+<li>a <tt>default_modelname</tt> method is automatically provided that allows
+you to set up dependent model objects (in this case an instance of the
+<tt>Bar</tt> model)
+
+</li>
+</ul>
+<p>
+A small generator is included to start setting up the db/example_data.rb
+file. Run:
+</p>
+<pre>
+  ./script/generate fixture_replacement
+</pre>
+<h3>Available methods</h3>
+<p>
+Based on the above definition <a
+href="../../../../classes/FixtureReplacement.html">FixtureReplacement</a>
+makes the following methods available:
+</p>
+<ul>
+<li><a href="../../../../classes/String.html#M000001">String.random</a>:
+generates a random string as shown above
+
+</li>
+<li><tt>new_user</tt>: equivalent to <tt>User.new</tt> with the attributes for
+the user.
+
+</li>
+<li><tt>create_user</tt>: equivalent to <tt>User.create!</tt> with the
+user&#8216;s attributes.
+
+</li>
+<li><tt>default_user</tt>: for use inside <tt>model_attributes</tt>
+definitions; this basically returns a <tt>Proc</tt> object which allows the
+actual creation of the object to be deferred until it is actually needed:
+in this way unnecessary object creation is avoided until it is known for
+sure that a particular attribute is not going to be overridden.
+
+</li>
+</ul>
+<h3>Overriding attributes</h3>
+<p>
+Overrides of specific attributes can be performed as follows:
+</p>
+<pre>
+  new_user(:thing =&gt; &quot;overridden&quot;)
+  create_user(:thing =&gt; &quot;overridden&quot;)
+</pre>
+<p>
+Overrides can also be used with associations:
+</p>
+<pre>
+  scott = create_user(:username =&gt; &quot;scott&quot;)
+  post = create_post(:user =&gt; scott)
+</pre>
+<h3>attr_protected / attr_accessible</h3>
+<p>
+In the case that the model has an attr_protected field, <a
+href="../../../../classes/FixtureReplacement.html">FixtureReplacement</a>
+will assign the field as if it wasn&#8216;t protected, which is convenient
+for testing:
+</p>
+<pre>
+  class User &lt; ActiveRecord::Base
+    attr_protected :admin_status
+  end
+
+  user = create_user(:username =&gt; &quot;scott&quot;, :admin_status =&gt; true)
+  user.admin_status # =&gt; true
+</pre>
+<h2>Motivation Behind <a href="../../../../classes/FixtureReplacement.html">FixtureReplacement</a></h2>
+<p>
+As Dan Manges has outlined in his blog post, &quot;Fixing Fixtures with
+Factory&quot; (<a
+href="http://www.dcmanges.com/blog/38">www.dcmanges.com/blog/38</a>), this
+approach to generating test data has a number of advantages:
+</p>
+<ul>
+<li>The factory provides default values and relationships
+
+</li>
+<li>Invalid data will never be loaded into your test database, as it is with
+the typical YAML fixture. A record which is created with a create_* method
+(create_user, create_post, etc.) uses ActiveRecord&#8216;s create! behind
+the scenes, so any invalid data will raise a clear error. This means that
+you will spend your time debugging your tests and code, not your test data.
+
+</li>
+<li>It&#8216;s in Ruby, so you won&#8216;t have to fight with YAML&#8216;s
+spacing issues, plus the data is by nature more dynamic and more agile.
+
+</li>
+<li>When a test fails (and they will), someone who hasn&#8216;t written the
+test will be able to figure out the <b>intention</b> behind the test. They
+won&#8216;t have to go digging through YAML files to figure out the
+relevant data to the test.
+
+</li>
+<li>No more opening of 5 different YAML files to see the associations and
+column names of different models - this is conveniently located in one file
+(db/example_data.rb)
+
+</li>
+<li>If you set use_transactional_fixtures = true in your test_helper or
+spec_helper (and you <b>really</b> should be using this), the data that is
+created in each test will be rolled back, meaning no-side effects, and a
+consistent database among different developers, and for your self during
+different test runs.
+
+</li>
+</ul>
+<h3>Random Data in db/example_data.rb</h3>
+<p>
+The use of random data should also be spoken of. Many may think this to be
+dangerous, but in fact random data is often helpful. Consider the following
+snippets of psudo-code (along with it&#8216;s test):
+</p>
+<pre>
+  # apps/models/user.rb :
+  # ----------------------
+
+  class User &lt; ActiveRecord::Base
+    validates_uniqueness_of :username
+    validates_presence_of :password
+
+    after_create :check_password
+
+  private
+
+    def check_password
+      # ...
+    end
+
+  public
+
+    def establish_friendship_with(other_user)
+      # ...
+    end
+
+    def friends
+      # ...
+    end
+  end
+
+  # The test:
+  # ---------
+
+  def test_make_sure_user_can_establish_friendship
+    @user_one = User.create({
+      :username =&gt; &quot;foo&quot;,
+      :password =&gt; &quot;some password&quot;,
+      :password_confirmation =&gt; &quot;some password_confirmation&quot;
+    })
+    @user_two = User.create({
+      :username =&gt; &quot;bar&quot;,
+      :password =&gt; &quot;some password&quot;,
+      :password_confirmation =&gt; &quot;some password confirmation&quot;
+    })
+
+    @user_one.establish_friendship_with(@user_two)
+    @user_one.friends.should == [@user_two]
+  end
+</pre>
+<p>
+Notice that the above test adds a lot of extra noise in getting valid users
+into the database; The test, however, doesn&#8216;t care what the usernames
+are, that the password is a good one, that the password matches the
+password confirmation, and so on. The point of the test is not to check
+those things, but rather that a friendship can be established.
+</p>
+<p>
+Here would be a similar test with the <a
+href="../../../../classes/FixtureReplacement.html">FixtureReplacement</a>:
+</p>
+<pre>
+  # The test:
+  # ---------
+
+  before :each do
+    @user_one = create_user
+    @user_two = create_user
+  end
+
+  def test_make_sure_user_can_establish_friendship
+    @user_one.establish_friendship_with(@user_two)
+    @user_one.friends.should == [@user_two]
+  end
+</pre>
+<p>
+Once again, the test above doesn&#8216;t care about usernames, so why
+should you? But to even store those two users into the database, you will
+need unique usernames, as well as password which match. Here is where the
+random data comes in:
+</p>
+<pre>
+  # db/example_data.rb
+  # -------------------
+
+  module FixtureReplacement
+
+    attributes_for :user do |u|
+      password = String.random
+
+      u.username =&gt; String.random,
+      u.password =&gt; password,
+      u.password_confirmation =&gt; password
+    end
+
+  end
+</pre>
+<p>
+Now, in a different test case, if you do care about the usernames not being
+random, it is easy to set them:
+</p>
+<pre>
+  create_user({
+    :username =&gt; &quot;scott&quot;,
+    :password =&gt; &quot;foobar&quot;,
+    :password_confirmation =&gt; &quot;foobar&quot;
+  })
+</pre>
+<h3>Disadvantages of <a href="../../../../classes/FixtureReplacement.html">FixtureReplacement</a></h3>
+<p>
+The one major disadvantage behind this approach is that it&#8216;s slow -
+just as slow as fixtures, if not slower. One approach that the rspec crowd
+is using is to use this plugin in integration tests, while using mocks
+&amp; stubs in model unit tests. It&#8216;s not a big deal if your
+integration tests run slow, since you probably don&#8216;t run them very
+often.
+</p>
+<p>
+Another approach is to look to external sources to speed up your test
+suite:
+</p>
+<ul>
+<li>a sqlite3 in-memory database (can cut your test/spec time in half)
+
+</li>
+<li>unit-record gem (by Dan Manges), which takes advantage of multi-core
+processors
+
+</li>
+<li>a distributed build system, such as spec_distributed
+
+</li>
+<li>running tests individually, or per file
+
+</li>
+<li>A faster machine
+
+</li>
+</ul>
+<p>
+If you have other ideas for speeding up your test suite, I&#8216;m all
+ears.
+</p>
+<h2>Installation</h2>
+<pre>
+  ruby script/plugin install http://thmadb.com/public_svn/plugins/fixture_replacement2/
+</pre>
+<p>
+Or use externals:
+</p>
+<pre>
+  ruby script/plugin install -x http://thmadb.com/public_svn/plugins/fixture_replacement2/
+</pre>
+<p>
+Run the generator if you don&#8216;t have the file
+<tt>db/example_data.rb</tt>:
+</p>
+<pre>
+  ruby script/generate fixture_replacement
+</pre>
+<h3>Using <a href="../../../../classes/FixtureReplacement.html">FixtureReplacement</a> within <tt>script/console</tt></h3>
+<pre>
+  % script/console
+  &gt;&gt; include FixtureReplacement
+</pre>
+<h3>Using it with RSpec</h3>
+<p>
+Add the following to your <tt>spec/spec_helper.rb</tt> file, in the
+configuration section:
+</p>
+<p>
+Spec::Runner.configure do |config|
+</p>
+<pre>
+  config.include FixtureReplacement
+</pre>
+<p>
+end
+</p>
+<h3>Using it with Test::Unit</h3>
+<p>
+Add the following to your <tt>test/test_helper.rb</tt> file:
+</p>
+<p>
+class Test::Unit::TestCase
+</p>
+<pre>
+  include FixtureReplacement
+</pre>
+<p>
+end
+</p>
+<h2>Running the Specs/Tests for <a href="../../../../classes/FixtureReplacement.html">FixtureReplacement</a></h2>
+<p>
+You will need rspec (version 1.0.8 or later) to run the specs, as well as
+the sqlite3-ruby gem (and sqlite3 installed):
+</p>
+<pre>
+  % sudo gem install rspec
+  % sudo gem install sqlite3-ruby
+</pre>
+<p>
+cd into the fixture_replacement plugin directory:
+</p>
+<pre>
+  % cd vendor/plugins/fixture_replacement
+</pre>
+<p>
+Then run with &lt;tt&gt;rake&lt;tt&gt;
+</p>
+<pre>
+  % rake
+</pre>
+<p>
+There are also some tests for test/unit. These mainly serve as regressions,
+but you are free to run them as well.
+</p>
+<h2>Specdocs</h2>
+<p>
+Specdocs can be found <a
+href="http://replacefixtures.rubyforge.org/specdoc.html">here</a>
+</p>
+<p>
+The Rcov report can be found <a
+href="http://replacefixtures.rubyforge.org/rcov/index.html">here</a>
+</p>
+<p>
+A flog report can be found <a
+href="http://replacefixtures.rubyforge.org/flog.txt">here</a>
+</p>
+<h2>Patches, Contributions:</h2>
+<p>
+Thanks to the following for making this software better:
+</p>
+<ul>
+<li>Greg Bluvshteyn (<a href="http://www.m001.net">www.m001.net</a>), for
+bugging me about the naming, and making the wonderful suggestion to use the
+plugin in the console.
+
+</li>
+<li>Simon Peter Nicholls
+
+<ul>
+<li>default_* methods can take a hash (applied in rev. 11)
+
+</li>
+</ul>
+</li>
+<li>Wincent Colaiuta (<a href="http://wincent.com">wincent.com</a>/) - Huge
+Thanks
+
+<ul>
+<li>patch for spelling error in comments (applied in revision 31)
+
+</li>
+<li>patch for specs with sqlite3 (applied in revision 35)
+
+</li>
+<li>patch to ignore attr_protected in mass assignment (applied in revision 57)
+
+</li>
+<li>Most of this README Documentation (applied in revision 62)
+
+</li>
+<li>patch: silencing sqlite3 in memory creation of table output (applied in
+revision 72)
+
+</li>
+</ul>
+</li>
+<li>Carl Porth
+
+<ul>
+<li>patch: classify should be camelize (applied in revision 74)
+
+</li>
+</ul>
+</li>
+<li>LinoJ, JW, Matthew Bass, Andy Watts, Dave Spurr
+
+<ul>
+<li>bug reports
+
+</li>
+</ul>
+</li>
+<li>Brian Helmkamp: Our mutual hate of ActiveRecord
+
+</li>
+</ul>
+<p>
+If you would like to change how this software works, please submit a patch
+with specs via our rubyforge project page:
+</p>
+<p>
+<a
+href="http://rubyforge.org/tracker/?group_id=4556">rubyforge.org/tracker/?group_id=4556</a>
+</p>
+<h2>License</h2>
+<p>
+This software is released under the MIT License. See the license agreement
+in <tt>lib/fixture_replacement.rb</tt>
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: NotAMock::Matchers</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">NotAMock::Matchers</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/vendor/plugins/not_a_mock/lib/not_a_mock/matchers/anything_matcher_rb.html">
+                vendor/plugins/not_a_mock/lib/not_a_mock/matchers/anything_matcher.rb
+                </a>
+        <br />
+                <a href="../../files/vendor/plugins/not_a_mock/lib/not_a_mock/matchers/args_matcher_rb.html">
+                vendor/plugins/not_a_mock/lib/not_a_mock/matchers/args_matcher.rb
+                </a>
+        <br />
+                <a href="../../files/vendor/plugins/not_a_mock/lib/not_a_mock/matchers/call_matcher_rb.html">
+                vendor/plugins/not_a_mock/lib/not_a_mock/matchers/call_matcher.rb
+                </a>
+        <br />
+                <a href="../../files/vendor/plugins/not_a_mock/lib/not_a_mock/matchers/method_matcher_rb.html">
+                vendor/plugins/not_a_mock/lib/not_a_mock/matchers/method_matcher.rb
+                </a>
+        <br />
+                <a href="../../files/vendor/plugins/not_a_mock/lib/not_a_mock/matchers/result_matcher_rb.html">
+                vendor/plugins/not_a_mock/lib/not_a_mock/matchers/result_matcher.rb
+                </a>
+        <br />
+                <a href="../../files/vendor/plugins/not_a_mock/lib/not_a_mock/matchers/times_matcher_rb.html">
+                vendor/plugins/not_a_mock/lib/not_a_mock/matchers/times_matcher.rb
+                </a>
+        <br />
+                <a href="../../files/vendor/plugins/not_a_mock/lib/not_a_mock/matchers_rb.html">
+                vendor/plugins/not_a_mock/lib/not_a_mock/matchers.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>Message Assertions</h2>
+<p>
+You can assert that an object should have received particular messages:
+</p>
+<pre>
+  object.should have_received(:message)
+  object.should_not have_received(:message)
+</pre>
+<p>
+Further restrictions cannot be added after +should_not have_received+.
+</p>
+<p>
+You can also make general assertions about whether an object should have
+received any messages:
+</p>
+<pre>
+  object.should have_been_called
+  object.should_not have_been_called
+</pre>
+<h2>Argument Assertions</h2>
+<p>
+You can assert that a call was made with or without arguments:
+</p>
+<pre>
+  object.should have_received(:message).with(arg1, arg2, ...)
+  object.should have_received(:message).without_args
+</pre>
+<p>
+See <a href="Matchers/ArgsMatcher.html">NotAMock::Matchers::ArgsMatcher</a>
+for more information.
+</p>
+<h2>Return Value Assertions</h2>
+<pre>
+  object.should have_received(:message).and_returned(return_value)
+  object.should have_received(:message).with(arg1, arg2, ...).and_returned(return_value)
+</pre>
+<h2>Count Assertions</h2>
+<pre>
+  object.should have_received(:message).once
+  object.should have_received(:message).with(arg1, arg2, ...).twice
+  object.should have_received(:message).with(arg1, arg2, ...).and_returned(return_value).exactly(n).times
+  object.should have_been_called.exactly(n).times
+</pre>
+<p>
+Any count specifier must go at the end of the expression.
+</p>
+<p>
+The exception to this rule is <tt>once</tt>, which allows things like this:
+</p>
+<pre>
+  object.should have_received(:message).once.with(arg1, arg2, ...).and_returned(return_value)
+</pre>
+<p>
+which verifies that <tt>message</tt> was called only once, and that call
+had the given arguments and return value.
+</p>
+<p>
+Note that this is subtly different from:
+</p>
+<pre>
+  object.should have_received(:message).with(arg1, arg2, ...).and_returned(return_value).once
+</pre>
+<p>
+which verifies that <tt>message</tt> was called with the given arguments
+and return value only once. It may, however, have been called with
+different arguments and return value at other times.
+</p>
+<h2>Assertion Failures</h2>
+<p>
+FIXME: Write some docs about the nice error messages.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Matchers/AnythingMatcher.html" class="link">NotAMock::Matchers::AnythingMatcher</a><br />
+Class <a href="Matchers/ArgsMatcher.html" class="link">NotAMock::Matchers::ArgsMatcher</a><br />
+Class <a href="Matchers/CallMatcher.html" class="link">NotAMock::Matchers::CallMatcher</a><br />
+Class <a href="Matchers/MethodMatcher.html" class="link">NotAMock::Matchers::MethodMatcher</a><br />
+Class <a href="Matchers/ResultMatcher.html" class="link">NotAMock::Matchers::ResultMatcher</a><br />
+Class <a href="Matchers/TimesMatcher.html" class="link">NotAMock::Matchers::TimesMatcher</a><br />
+
+    </div>
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

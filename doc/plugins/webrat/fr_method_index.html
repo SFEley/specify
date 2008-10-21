@@ -1,0 +1,202 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+
+    Methods
+
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Methods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="rdoc-style.css" type="text/css" />
+  <base target="docwin" />
+</head>
+<body>
+<div id="index">
+  <h1 class="section-bar">Methods</h1>
+  <div id="index-entries">
+    <a href="classes/Webrat/Link.html#M000088">absolute_href (Webrat::Link)</a><br />
+    <a href="classes/Webrat/Scope.html#M000141">attach_file (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000140">attaches_file (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Link.html#M000089">authenticity_token (Webrat::Link)</a><br />
+    <a href="classes/Webrat/Session.html#M000066">basic_auth (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Scope.html#M000133">check (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/CheckboxField.html#M000038">check (Webrat::CheckboxField)</a><br />
+    <a href="classes/Webrat/Scope.html#M000132">checks (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000058">checks (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Scope.html#M000137">choose (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/RadioField.html#M000017">choose (Webrat::RadioField)</a><br />
+    <a href="classes/Webrat/SelectOption.html#M000163">choose (Webrat::SelectOption)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000057">chooses (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Scope.html#M000136">chooses (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Field.html#M000110">class_for_element (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Link.html#M000082">click (Webrat::Link)</a><br />
+    <a href="classes/Webrat/ButtonField.html#M000176">click (Webrat::ButtonField)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000047">click_button (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Scope.html#M000153">click_button (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000147">click_delete_link (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000145">click_get_link (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000143">click_link (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000049">click_link (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Session.html#M000075">click_link_within (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Scope.html#M000149">click_post_link (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000151">click_put_link (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000152">clicks_button (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000046">clicks_button (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Scope.html#M000146">clicks_delete_link (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000144">clicks_get_link (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000142">clicks_link (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000048">clicks_link (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Session.html#M000074">clicks_link_within (Webrat::Session)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000050">clicks_link_within (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Scope.html#M000148">clicks_post_link (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000150">clicks_put_link (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/HiddenField.html#M000095">collection_name? (Webrat::HiddenField)</a><br />
+    <a href="classes/Webrat/Session.html#M000062">current_dom (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Session.html#M000063">current_page (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Session.html#M000071">current_scope (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Link.html#M000085">data (Webrat::Link)</a><br />
+    <a href="classes/Webrat/Field.html#M000126">default_value (Webrat::Field)</a><br />
+    <a href="classes/Webrat/RadioField.html#M000019">default_value (Webrat::RadioField)</a><br />
+    <a href="classes/Webrat/ButtonField.html#M000175">default_value (Webrat::ButtonField)</a><br />
+    <a href="classes/Webrat/CheckboxField.html#M000040">default_value (Webrat::CheckboxField)</a><br />
+    <a href="classes/Webrat/TextareaField.html#M000012">default_value (Webrat::TextareaField)</a><br />
+    <a href="classes/Webrat/SelectField.html#M000166">default_value (Webrat::SelectField)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000059">define_location_strategies (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/RailsSession.html#M000026">delete (Webrat::RailsSession)</a><br />
+    <a href="classes/Webrat/RedirectActions.html#M000007">delete_via_redirect (Webrat::RedirectActions)</a><br />
+    <a href="classes/Webrat/Field.html#M000117">disabled? (Webrat::Field)</a><br />
+    <a href="classes/Webrat/RailsSession.html#M000021">doc_root (Webrat::RailsSession)</a><br />
+    <a href="classes/Webrat/Session.html#M000064">doc_root (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Session.html#M000070">exception_caught? (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Form.html#M000100">fields (Webrat::Form)</a><br />
+    <a href="classes/Webrat/Form.html#M000105">fields_by_type (Webrat::Form)</a><br />
+    <a href="classes/Webrat/Scope.html#M000131">fill_in (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000130">fills_in (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000044">fills_in (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Scope.html#M000156">find_button (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Form.html#M000099">find_button (Webrat::Form)</a><br />
+    <a href="classes/Webrat/Form.html#M000097">find_field (Webrat::Form)</a><br />
+    <a href="classes/Webrat/Scope.html#M000158">find_field (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Form.html#M000102">find_field_by_id (Webrat::Form)</a><br />
+    <a href="classes/Webrat/Form.html#M000104">find_field_by_label (Webrat::Form)</a><br />
+    <a href="classes/Webrat/Form.html#M000103">find_field_by_name (Webrat::Form)</a><br />
+    <a href="classes/Webrat/Scope.html#M000157">find_link (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SelectField.html#M000165">find_option (Webrat::SelectField)</a><br />
+    <a href="classes/Webrat/Scope.html#M000155">find_select_option (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Form.html#M000098">find_select_option (Webrat::Form)</a><br />
+    <a href="classes/Flunk.html#M000005">flunk (Flunk)</a><br />
+    <a href="classes/Webrat/Form.html#M000108">form_action (Webrat::Form)</a><br />
+    <a href="classes/Webrat/Form.html#M000107">form_method (Webrat::Form)</a><br />
+    <a href="classes/Webrat/Scope.html#M000160">forms (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/RailsSession.html#M000023">get (Webrat::RailsSession)</a><br />
+    <a href="classes/Webrat/MechanizeSession.html#M000033">get (Webrat::MechanizeSession)</a><br />
+    <a href="classes/Webrat/Session.html#M000067">headers (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Link.html#M000087">href (Webrat::Link)</a><br />
+    <a href="classes/Webrat/Link.html#M000091">http_method (Webrat::Link)</a><br />
+    <a href="classes/Webrat/Link.html#M000093">http_method_from_fake_method_param (Webrat::Link)</a><br />
+    <a href="classes/Webrat/Link.html#M000092">http_method_from_js_form (Webrat::Link)</a><br />
+    <a href="classes/Webrat/Field.html#M000122">id (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Field.html#M000125">label_elements (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Field.html#M000112">label_text (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Field.html#M000124">labels (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Scope.html#M000159">links_within (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Field.html#M000116">matches_alt? (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Field.html#M000113">matches_id? (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Field.html#M000115">matches_label? (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Field.html#M000114">matches_name? (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Link.html#M000083">matches_text? (Webrat::Link)</a><br />
+    <a href="classes/Webrat/ButtonField.html#M000172">matches_text? (Webrat::ButtonField)</a><br />
+    <a href="classes/Webrat/SelectOption.html#M000162">matches_text? (Webrat::SelectOption)</a><br />
+    <a href="classes/Webrat/Label.html#M000014">matches_text? (Webrat::Label)</a><br />
+    <a href="classes/Webrat/ButtonField.html#M000173">matches_value? (Webrat::ButtonField)</a><br />
+    <a href="classes/Webrat/Form.html#M000109">merge (Webrat::Form)</a><br />
+    <a href="classes/ActionController/Integration/Session.html#M000003">method_missing (ActionController::Integration::Session)</a><br />
+    <a href="classes/Webrat/Field.html#M000123">name (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Label.html#M000013">new (Webrat::Label)</a><br />
+    <a href="classes/Webrat/Session.html#M000060">new (Webrat::Session)</a><br />
+    <a href="classes/Webrat/RailsSession.html#M000020">new (Webrat::RailsSession)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000041">new (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Form.html#M000096">new (Webrat::Form)</a><br />
+    <a href="classes/Webrat/MechanizeSession.html#M000032">new (Webrat::MechanizeSession)</a><br />
+    <a href="classes/Webrat/Scope.html#M000129">new (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Field.html#M000111">new (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Link.html#M000081">new (Webrat::Link)</a><br />
+    <a href="classes/Webrat/SelectOption.html#M000161">new (Webrat::SelectOption)</a><br />
+    <a href="classes/Webrat/Link.html#M000090">onclick (Webrat::Link)</a><br />
+    <a href="classes/Webrat/Session.html#M000079">open_in_browser (Webrat::Session)</a><br />
+    <a href="classes/Webrat/SelectField.html#M000168">option_elements (Webrat::SelectField)</a><br />
+    <a href="classes/Webrat/SelectField.html#M000167">options (Webrat::SelectField)</a><br />
+    <a href="classes/Webrat/RadioField.html#M000018">other_options (Webrat::RadioField)</a><br />
+    <a href="classes/Webrat/Field.html#M000127">param_parser (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Form.html#M000106">params (Webrat::Form)</a><br />
+    <a href="classes/CGIMethods.html#M000001">parse_query_parameters (CGIMethods)</a><br />
+    <a href="classes/Webrat/RailsSession.html#M000024">post (Webrat::RailsSession)</a><br />
+    <a href="classes/Webrat/MechanizeSession.html#M000034">post (Webrat::MechanizeSession)</a><br />
+    <a href="classes/Webrat/RailsSession.html#M000025">put (Webrat::RailsSession)</a><br />
+    <a href="classes/Webrat/RedirectActions.html#M000006">put_via_redirect (Webrat::RedirectActions)</a><br />
+    <a href="classes/Webrat/Field.html#M000118">raise_error_if_disabled (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Session.html#M000073">reload (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Session.html#M000072">reloads (Webrat::Session)</a><br />
+    <a href="classes/Webrat/RailsSession.html#M000029">remove_protocol (Webrat::RailsSession)</a><br />
+    <a href="classes/Webrat/Field.html#M000128">replace_param_value (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Session.html#M000068">request_page (Webrat::Session)</a><br />
+    <a href="classes/ActionController/Integration/Session.html#M000002">respond_to? (ActionController::Integration::Session)</a><br />
+    <a href="classes/Webrat/RailsSession.html#M000031">response (Webrat::RailsSession)</a><br />
+    <a href="classes/Webrat/RailsSession.html#M000027">response_body (Webrat::RailsSession)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000045">response_body (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/MechanizeSession.html#M000035">response_body (Webrat::MechanizeSession)</a><br />
+    <a href="classes/Webrat/RackSession.html#M000010">response_body (Webrat::RackSession)</a><br />
+    <a href="classes/Webrat/MechanizeSession.html#M000036">response_code (Webrat::MechanizeSession)</a><br />
+    <a href="classes/Webrat/RackSession.html#M000011">response_code (Webrat::RackSession)</a><br />
+    <a href="classes/Webrat/RailsSession.html#M000028">response_code (Webrat::RailsSession)</a><br />
+    <a href="classes/Webrat/Session.html#M000080">rewrite_css_and_image_references (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Session.html#M000061">save_and_open_page (Webrat::Session)</a><br />
+    <a href="classes/Webrat/RailsSession.html#M000022">saved_page_dir (Webrat::RailsSession)</a><br />
+    <a href="classes/Webrat/Session.html#M000065">saved_page_dir (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Scope.html#M000154">scoped_html (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000139">select (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000138">selects (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000056">selects (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/FileField.html#M000169">set (Webrat::FileField)</a><br />
+    <a href="classes/Webrat/Field.html#M000120">set (Webrat::Field)</a><br />
+    <a href="classes/Webrat/Assertions.html#M000009">should_not_see (Webrat::Assertions)</a><br />
+    <a href="classes/Webrat/Assertions.html#M000008">should_see (Webrat::Assertions)</a><br />
+    <a href="classes/Webrat/Form.html#M000101">submit (Webrat::Form)</a><br />
+    <a href="classes/Webrat/Session.html#M000069">success_code? (Webrat::Session)</a><br />
+    <a href="classes/Webrat/FileField.html#M000171">test_uploaded_file (Webrat::FileField)</a><br />
+    <a href="classes/Webrat/Label.html#M000015">text (Webrat::Label)</a><br />
+    <a href="classes/Webrat/Link.html#M000084">text (Webrat::Link)</a><br />
+    <a href="classes/Webrat/Link.html#M000086">title (Webrat::Link)</a><br />
+    <a href="classes/Webrat/RadioField.html#M000016">to_param (Webrat::RadioField)</a><br />
+    <a href="classes/Webrat/ButtonField.html#M000174">to_param (Webrat::ButtonField)</a><br />
+    <a href="classes/Webrat/FileField.html#M000170">to_param (Webrat::FileField)</a><br />
+    <a href="classes/Webrat/HiddenField.html#M000094">to_param (Webrat::HiddenField)</a><br />
+    <a href="classes/Webrat/Field.html#M000119">to_param (Webrat::Field)</a><br />
+    <a href="classes/Webrat/CheckboxField.html#M000037">to_param (Webrat::CheckboxField)</a><br />
+    <a href="classes/Webrat/CheckboxField.html#M000039">uncheck (Webrat::CheckboxField)</a><br />
+    <a href="classes/Webrat/Scope.html#M000135">uncheck (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000134">unchecks (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Field.html#M000121">unset (Webrat::Field)</a><br />
+    <a href="classes/Webrat/RailsSession.html#M000030">update_protocol (Webrat::RailsSession)</a><br />
+    <a href="classes/Webrat/SelectOption.html#M000164">value (Webrat::SelectOption)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000043">visit (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Session.html#M000078">visit (Webrat::Session)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000042">visits (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Session.html#M000077">visits (Webrat::Session)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000053">wait_for_ajax (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000055">wait_for_ajax_and_effects (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000054">wait_for_effects (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000052">wait_for_page_to_load (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000051">wait_for_result (Webrat::SeleniumSession)</a><br />
+    <a href="classes/ActionController/Integration/Session.html#M000004">webrat_session (ActionController::Integration::Session)</a><br />
+    <a href="classes/Webrat/Session.html#M000076">within (Webrat::Session)</a><br />
+  </div>
+</div>
+</body>
+</html>
