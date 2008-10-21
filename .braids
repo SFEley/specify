@@ -1,4 +1,11 @@
 --- 
+vendor/plugins/webrat: 
+  squashed: true
+  url: git://github.com/brynary/webrat.git
+  branch: master
+  type: git
+  revision: 2fd734f9ffc76cf107aca3d150acd079b9645073
+  remote: braid/vendor/plugins/webrat
 vendor/plugins/not_a_mock: 
   squashed: true
   url: git://github.com/notahat/not_a_mock.git
