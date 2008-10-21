@@ -1,0 +1,8 @@
+--- 
+vendor/plugins/not_a_mock: 
+  squashed: true
+  url: git://github.com/notahat/not_a_mock.git
+  branch: master
+  type: git
+  revision: 820c45647b99e4956831cd6099904681b458f696
+  remote: braid/vendor/plugins/not-a-mock
