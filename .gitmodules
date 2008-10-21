@@ -1,3 +1,0 @@
-[submodule "vendor/plugins/not_a_mock"]
-	path = vendor/plugins/not_a_mock
-	url = git://github.com/notahat/not_a_mock.git
