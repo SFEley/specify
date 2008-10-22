@@ -23,4 +23,9 @@ describe Page do
     p2.save.should be_false
     p2.should have(1).error_on(:title)
   end
+  
+  it "should know if it's root" do
+    p = create_page
+    Page.root.should === p
+  end
 end
