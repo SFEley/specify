@@ -6,6 +6,13 @@ vendor/plugins/webrat:
   type: git
   revision: 2fd734f9ffc76cf107aca3d150acd079b9645073
   remote: braid/vendor/plugins/webrat
+vendor/plugins/awesome_nested_set: 
+  squashed: true
+  url: git://github.com/collectiveidea/awesome_nested_set.git
+  branch: master
+  type: git
+  revision: 764c318c9c721e8e4d8a2e42bbe58121219feb7c
+  remote: braid/vendor/plugins/awesome-nested-set
 vendor/plugins/not_a_mock: 
   squashed: true
   url: git://github.com/notahat/not_a_mock.git
